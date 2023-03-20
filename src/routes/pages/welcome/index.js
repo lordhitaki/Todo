@@ -16,7 +16,8 @@ export default function Welcome(){
     <View style={styles.tela}>
         <View style={styles.boxIcon}>
             <TouchableOpacity>        
-            <Icon name="arrow-left" size={20} color="#fff" />
+            <Icon name="arrow-left" size={20} color="#fff"
+            onPress={() => navigation.navigate('Index1')} />
             </TouchableOpacity>
         </View>
         <Animatable.View animation="fadeInUp" style={styles.boxText}>
