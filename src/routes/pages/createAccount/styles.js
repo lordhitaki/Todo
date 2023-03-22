@@ -6,10 +6,11 @@ const styles = StyleSheet.create({
         backgroundColor:"#121212",
         width:"100%",
         height:"100%",
+        
    },
    boxIcon:{
     paddingTop:"5%",
-    paddingLeft:"5%",
+    paddingLeft:"5%",    
 },
 boxTextLogin:{
     paddingTop:"5%",
@@ -24,13 +25,6 @@ textLogin:{
 boxinputs:{
     paddingTop:"8%",
     paddingLeft:"5%",
-
-},
-textInputs:{
-    color:"#ffffff",
-    fontSize:18,
-    fontWeight:"400",
-    marginBottom:"5%",
 },
 inputs:{
     backgroundColor:"#1d1d1d",
@@ -45,15 +39,22 @@ inputs:{
     paddingHorizontal:20,
     borderRadius:5
 },
+textInputs:{
+    color:"#ffffff",
+    fontSize:18,
+    fontWeight:"400",
+    marginBottom:"5%",
+},
+
 buttonLogin:{
-    marginLeft:"5%",
+    marginLeft:"7%",
     backgroundColor:"#8875FF",
     width:"86%",
     height: 48,
     alignItems:"center",
     justifyContent:"center",
     borderRadius:4,
-    marginTop:"-32%",
+    marginTop:"-30%",
 },
 textLogin2:{
     fontWeight:"400",
@@ -136,6 +137,9 @@ textRegister:{
 },
 linkinRegister:{
     color:"#ffffff"
+},
+boxScroll:{
+    height:"60%"
 },
 })
 

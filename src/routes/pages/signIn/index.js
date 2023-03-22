@@ -1,10 +1,12 @@
-import React from "react"
+import React, { useState } from "react"
 import { View,
          Text,
          TouchableOpacity,
          TextInput,
          Image,
-         Linking } from "react-native"
+         Linking,
+         TouchableWithoutFeedback,
+        Keyboard } from "react-native"
 import styles from "./styles"
 import Icon from 'react-native-vector-icons/FontAwesome';
 import * as Animatable from 'react-native-animatable'
@@ -13,6 +15,21 @@ import * as AuthSession from 'expo-auth-session'
 
 
 export default function SignIn(){
+
+    const [username, setUsername ] = useState(null)
+    const [password, setPassword] = useState(null)
+
+        function Login(){
+            if(username === '' || password ==='' || password.length < 4){
+                alert("Preencha todos os campos")
+            }else{
+            const data = {
+                username,
+                password,
+            }
+            console.log(data)
+        }
+        }
 
     async function handleGoogleSignIn(){
         try{
@@ -33,6 +50,9 @@ export default function SignIn(){
     const navigation = useNavigation();
 
     return(
+    <TouchableWithoutFeedback
+    touchSoundDisabled
+    onPress={() => Keyboard.dismiss()}>
         <View style={styles.tela}>
             <View style={styles.boxIcon} >
                 <TouchableOpacity>        
@@ -51,7 +71,9 @@ export default function SignIn(){
                     <TextInput 
                     style={styles.inputs} 
                     placeholder="Digite aqui seu nome de usuario..." 
-                    placeholderTextColor="#494949" />
+                    placeholderTextColor="#494949" 
+                    onChangeText={setUsername}
+                    value={username}/>
                 <Text style={styles.textInputs}>
                     Senha
                 </Text>
@@ -59,13 +81,15 @@ export default function SignIn(){
                     style={styles.inputs} 
                     placeholder="Digite aqui sua senha..." 
                     placeholderTextColor="#494949"
-                    secureTextEntry= {true} 
+                    secureTextEntry= {true}
+                     onChangeText={setPassword}
+                    value={password}
                     />
                </View>
             </Animatable.View>
             <Animatable.View>
                 <TouchableOpacity style={styles.buttonLogin}
-                onPress={() => navigation.navigate('HomeScreen')}>
+                onPress={() => Login(navigation.navigate("HomeScreen"))}>
                     <Text style={styles.textLogin2}>
                         Login
                     </Text>
@@ -74,7 +98,7 @@ export default function SignIn(){
             <View style={styles.linhaVertical}>
             <View style={styles.linhaVertical2} />
             <View>
-                <Text style={styles.textVertical}>Or</Text>
+                <Text style={styles.textVertical}>Ou</Text>
             </View>
             <View style={styles.linhaVertical3} />
             </View>
@@ -99,15 +123,15 @@ export default function SignIn(){
             </Animatable.View>
             <View style={styles.boxRegister}>
                 <Text style={styles.textRegister}>
-                    Don't a have an account?
+                    Não tem uma conta?
                 </Text>
                 <Text
                 style={styles.linkinRegister}
                 onPress={() => navigation.navigate('Create')}>
-                    Register
+                    Registre-se
                 </Text>
             </View>
         </View>
-
+    </TouchableWithoutFeedback>
     )
 }

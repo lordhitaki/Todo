@@ -1,7 +1,9 @@
 import React from "react"
 import {View,
         Text, 
-        TouchableOpacity, 
+        TouchableOpacity,
+        TouchableWithoutFeedback,
+        Keyboard 
         } from "react-native"
 import styles from "./styles"
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -13,6 +15,9 @@ export default function Welcome(){
     const navigation = useNavigation();
 
     return(
+    <TouchableWithoutFeedback
+    touchSoundDisabled
+    onPress={() => Keyboard.dismiss()}>
     <View style={styles.tela}>
         <View style={styles.boxIcon}>
             <TouchableOpacity>        
@@ -22,12 +27,12 @@ export default function Welcome(){
         </View>
         <Animatable.View animation="fadeInUp" style={styles.boxText}>
             <Text style={styles.text}>
-                Welcome to UpTodo
+                Bem vindo ao UpTodo
             </Text>
         </Animatable.View>
         <Animatable.View animation="fadeInUp" style={styles.boxText2}>
             <Text style={styles.text2}>
-                Please login to your account or create new account to continue
+                Faça login na sua conta ou crie uma nova conta para continuar
             </Text>
         </Animatable.View>
             <Animatable.View animation="fadeInUp" style={styles.boxLogin}>
@@ -42,10 +47,11 @@ export default function Welcome(){
                 <TouchableOpacity style={styles.buttonLogin2}
                 onPress={() => navigation.navigate('Create')}>
                     <Text style={styles.textLogin2}>
-                        Create account
+                        Criar uma conta
                     </Text>
                 </TouchableOpacity>
             </Animatable.View>
         </View>
+    </TouchableWithoutFeedback>
     )
 }

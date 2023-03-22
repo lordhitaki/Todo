@@ -4,7 +4,9 @@ import { View,
          TouchableOpacity,
          TextInput,
          Image,
-         Linking } from "react-native"
+         Linking,
+         TouchableWithoutFeedback,
+         Keyboard } from "react-native"
 import Icon from 'react-native-vector-icons/FontAwesome';
 import * as Animatable from 'react-native-animatable'
 import { useNavigation } from '@react-navigation/native'
@@ -15,8 +17,12 @@ export default function HomeScreen(){
     const navigation = useNavigation();
 
     return(
+<TouchableWithoutFeedback
+    touchSoundDisabled
+    onPress={() => Keyboard.dismiss()}>
     <View style={styles.tela}>
        <Text style={styles.textHome}> Home </Text>
     </View>
+</TouchableWithoutFeedback>
     )
 }
