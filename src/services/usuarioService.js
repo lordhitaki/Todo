@@ -4,9 +4,9 @@ class UsuarioService{
 
     async Cadaster(data){
         return axios({
-            url:"http://192.168.1.105:3000/cadastrar",
+            url:"http://192.168.100.113:3000/cadastrar",
             method: "POST",
-            timeout: 7000,
+            timeout: 4000,
             data: data,
             headers:{
                 Accept: 'application/json'
